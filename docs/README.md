@@ -7,4 +7,4 @@ Dúvidas, melhorias e sugestões podem ser comunicadas via e-mail (rodrigomacedo
 
 # Exercícios
 ## [Lista 5 - Exercício 1](https://github.com/rodrigomacedo-sjr/exercicios-compiladores/tree/main/src)
-![Enunciado do Exercício 1 da lista 5] (https://github.com/rodrigomacedo-sjr/exercicios-compiladores/docs/imagens/l5e1.png)
+![Enunciado do Exercício 1 da lista 5] (docs/imagens/l5e1.png)
