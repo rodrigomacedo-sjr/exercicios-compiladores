@@ -445,15 +445,9 @@ int yy_flex_debug = 0;
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
 #line 1 "l7e3.l"
-#line 5 "l7e3.l"
-int jaExibiu = 0;
-
-void exibir(char* c) {
-    jaExibiu ? printf("\n") : (jaExibiu = 1);
-    printf("%s", c);
-}
-#line 456 "lex.yy.c"
-#line 457 "lex.yy.c"
+#line 4 "l7e3.l"
+#line 450 "lex.yy.c"
+#line 451 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -670,11 +664,10 @@ YY_DECL
 		}
 
 	{
-#line 14 "l7e3.l"
+#line 7 "l7e3.l"
 
 
-
-#line 678 "lex.yy.c"
+#line 671 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -733,25 +726,25 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 17 "l7e3.l"
-{ exibir(yytext); printf(" (action 1)"); }
+#line 9 "l7e3.l"
+{ printf("action 1\n"); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 18 "l7e3.l"
-{ exibir(yytext); printf(" (action 2)"); }
+#line 10 "l7e3.l"
+{ printf("action 2\n"); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 19 "l7e3.l"
-{ exibir(yytext); printf(" (action 3)"); }
+#line 11 "l7e3.l"
+{ printf("action 3\n"); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 22 "l7e3.l"
+#line 13 "l7e3.l"
 ECHO;
 	YY_BREAK
-#line 755 "lex.yy.c"
+#line 748 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1756,7 +1749,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 22 "l7e3.l"
+#line 13 "l7e3.l"
 
 
 
