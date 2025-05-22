@@ -2,34 +2,35 @@
 
 
 %{
-int jaExibiu = 0;
-
-void verificarNovaLinha() {
-    jaExibiu ? printf("\n") : (jaExibiu = 1);
-}
-
-void exibirComentario(char* c) {
-    c[strlen(c) - 1] = '\0';
-    printf("%s comment", c);
-}
+  char* removerUltimoCaracter(char *s) {
+    size_t len = strlen(s);
+    s[len - 1] = '\0';
+    return s;
+  }
 %}
 
 
 %%
 
+" "+ { printf("whitespace\n"); }
 
-"i""f" { verificarNovaLinha(); printf("%s IF", yytext); }                  // IF
-[a-hj-z]([0-9]|[a-z])* { verificarNovaLinha(); printf("%s ID", yytext); }  // ID
-"."[0-9]+ { verificarNovaLinha(); printf("%s REAL", yytext); }             // REAL
-[0-9]+"."[0-9]* { verificarNovaLinha(); printf("%s REAL", yytext); }       // REAL
-[0-9]+ { verificarNovaLinha(); printf("%s NUM", yytext); }                 // NUM
-"-""-"[a-z]+"\n" { verificarNovaLinha(); exibirComentario(yytext); }       // comment
-" "+ { verificarNovaLinha(); printf("white space"); }                      // white space
-. { verificarNovaLinha(); printf("%s error", yytext); }                    // error
+"if" { printf("IF\n"); }
+
+[a-z]+([a-z]|[0-9])+ { printf("%s ID\n", yytext); }
+
+[0-9]*"."[0-9]+ { printf("%s REAL\n", yytext); }
+
+[0-9]+ { printf("%s NUM\n", yytext); }
+
+"--"[a-z]+"\n" { yytext = removerUltimoCaracter(yytext); printf("%s comment\n", yytext); }
+
+. { printf("%s error\n", yytext); }
+
 
 
 %%
 
+#include <string.h>
 
 int main(int argc, char** argv) {
     return yylex();

@@ -354,8 +354,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 9
-#define YY_END_OF_BUFFER 10
+#define YY_NUM_RULES 8
+#define YY_END_OF_BUFFER 9
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -365,8 +365,8 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[23] =
     {   0,
-        0,    0,   10,    8,    9,    7,    8,    8,    5,    2,
-        8,    7,    0,    3,    4,    5,    2,    1,    0,    4,
+        0,    0,    9,    7,    8,    1,    7,    7,    5,    7,
+        7,    1,    0,    4,    0,    5,    3,    3,    2,    0,
         6,    0
     } ;
 
@@ -407,34 +407,34 @@ static const YY_CHAR yy_meta[10] =
         1,    1,    1,    1,    1,    2,    3,    3,    3
     } ;
 
-static const flex_int16_t yy_base[25] =
+static const flex_int16_t yy_base[26] =
     {   0,
-        0,    0,   24,   25,   25,   20,   18,   15,    5,    0,
-       12,   16,    0,   12,   11,    0,    0,   25,   14,    9,
-       25,   25,   10,   11
+        0,    0,   28,   29,   29,   24,   22,   19,    5,   18,
+        6,   20,    0,   16,   15,    0,    0,   14,    0,   17,
+       29,   29,   13,   10,   15
     } ;
 
-static const flex_int16_t yy_def[25] =
+static const flex_int16_t yy_def[26] =
     {   0,
        22,    1,   22,   22,   22,   22,   22,   22,   22,   23,
-       22,   22,   24,   22,   22,    9,   23,   22,   24,   22,
-       22,    0,   22,   22
+       23,   22,   24,   22,   22,    9,   25,   23,   18,   24,
+       22,    0,   22,   22,   22
     } ;
 
-static const flex_int16_t yy_nxt[35] =
+static const flex_int16_t yy_nxt[39] =
     {   0,
         4,    5,    6,    7,    8,    9,   10,   10,   11,   15,
-       16,   17,   17,   19,   20,   21,   20,   14,   12,   18,
-       14,   13,   12,   22,    3,   22,   22,   22,   22,   22,
-       22,   22,   22,   22
+       16,   17,   20,   19,   18,   18,   17,   17,   21,   17,
+       14,   14,   12,   17,   14,   13,   12,   22,    3,   22,
+       22,   22,   22,   22,   22,   22,   22,   22
     } ;
 
-static const flex_int16_t yy_chk[35] =
+static const flex_int16_t yy_chk[39] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    9,
-        9,   23,   23,   24,   20,   19,   15,   14,   12,   11,
-        8,    7,    6,    3,   22,   22,   22,   22,   22,   22,
-       22,   22,   22,   22
+        9,   11,   24,   11,   23,   23,   25,   25,   20,   18,
+       15,   14,   12,   10,    8,    7,    6,    3,   22,   22,
+       22,   22,   22,   22,   22,   22,   22,   22
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -453,18 +453,13 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "l7e2.l"
 #line 5 "l7e2.l"
-int jaExibiu = 0;
-
-void verificarNovaLinha() {
-    jaExibiu ? printf("\n") : (jaExibiu = 1);
-}
-
-void exibirComentario(char* c) {
-    c[strlen(c) - 1] = '\0';
-    printf("%s comment", c);
-}
-#line 467 "lex.yy.c"
-#line 468 "lex.yy.c"
+  char* removerUltimoCaracter(char *s) {
+    size_t len = strlen(s);
+    s[len - 1] = '\0';
+    return s;
+  }
+#line 462 "lex.yy.c"
+#line 463 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -681,11 +676,10 @@ YY_DECL
 		}
 
 	{
-#line 18 "l7e2.l"
+#line 13 "l7e2.l"
 
 
-
-#line 689 "lex.yy.c"
+#line 683 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -718,7 +712,7 @@ yy_match:
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 25 );
+		while ( yy_base[yy_current_state] != 29 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -744,51 +738,46 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 21 "l7e2.l"
-{ verificarNovaLinha(); printf("%s IF", yytext); }                  // IF
+#line 15 "l7e2.l"
+{ printf("whitespace\n"); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 22 "l7e2.l"
-{ verificarNovaLinha(); printf("%s ID", yytext); }  // ID
+#line 17 "l7e2.l"
+{ printf("IF\n"); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 23 "l7e2.l"
-{ verificarNovaLinha(); printf("%s REAL", yytext); }             // REAL
+#line 19 "l7e2.l"
+{ printf("%s ID\n", yytext); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 24 "l7e2.l"
-{ verificarNovaLinha(); printf("%s REAL", yytext); }       // REAL
+#line 21 "l7e2.l"
+{ printf("%s REAL\n", yytext); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 25 "l7e2.l"
-{ verificarNovaLinha(); printf("%s NUM", yytext); }                 // NUM
+#line 23 "l7e2.l"
+{ printf("%s NUM\n", yytext); }
 	YY_BREAK
 case 6:
 /* rule 6 can match eol */
 YY_RULE_SETUP
-#line 26 "l7e2.l"
-{ verificarNovaLinha(); exibirComentario(yytext); }       // comment
+#line 25 "l7e2.l"
+{ yytext = removerUltimoCaracter(yytext); printf("%s comment\n", yytext); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 27 "l7e2.l"
-{ verificarNovaLinha(); printf("white space"); }                      // white space
+{ printf("%s error\n", yytext); }
 	YY_BREAK
 case 8:
-YY_RULE_SETUP
-#line 28 "l7e2.l"
-{ verificarNovaLinha(); printf("%s error", yytext); }                    // error
-	YY_BREAK
-case 9:
 YY_RULE_SETUP
 #line 31 "l7e2.l"
 ECHO;
 	YY_BREAK
-#line 792 "lex.yy.c"
+#line 781 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1796,6 +1785,7 @@ void yyfree (void * ptr )
 #line 31 "l7e2.l"
 
 
+#include <string.h>
 
 int main(int argc, char** argv) {
     return yylex();
