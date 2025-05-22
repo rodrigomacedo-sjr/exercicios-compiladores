@@ -2,28 +2,20 @@
 
 
 %{
-int jaExibiu = 0;
-
-void exibir(char* c) {
-    if (jaExibiu) {
-      printf("\n");
-    } else {
-      (jaExibiu = 1);
-    }
-    printf("%s", c);
-}
 %}
+
 
 
 %%
 
-"\n" { } // ignora nl
-"+" { exibir("+"); }
-"-" { exibir("-"); }
-[a-z]([0-9]|[a-z])* { exibir(yytext); }
-[0-9]+"e"(([0-9]+)|(("+"|"-")[0-9]+)) { exibir(yytext); }
-[0-9]+ { exibir(yytext); }
-. { exibir("ERRO"); }
+// + e - individualmente
+"+"|"-" { printf("%s\n", yytext); }
+
+// uma letra seguida de uma combinação de 0 ou mais letras ou números
+[a-z]([a-z]|[0-9])* { printf("%s\n", yytext); }
+[0-9]+("e"[0-9]+|"e"[0-9]+("+"|"-")[0-9]+) { printf("%s\n", yytext); }
+\n {}
+. { printf("ERRO\n"); }
 
 
 %%
